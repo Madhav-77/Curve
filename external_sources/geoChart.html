@@ -1,0 +1,159 @@
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {
+            'region': 'ISO 3166-2:IN',
+            'packages': ['geochart'],
+            // Note: you will need to get a mapsApiKey for your project.
+            // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
+            'mapsApiKey': 'AIzaSyD32rrrjMffnCJYkDvMoCQPQWX9mkGqiws'
+        });
+        google.charts.setOnLoadCallback(drawRegionsMap);
+
+        function drawRegionsMap() {
+            var data = google.visualization.arrayToDataTable([
+                ['State', 'Population'],
+                ['Uttar Pradesh', 199581477],
+                ['Maharashtra', 112372972],
+                ['Bihar', 103804637],
+                ['West Bengal', 91347736],
+                ['Madhya Pradesh', 72597565],
+                ['Tamil Nadu', 72138958],
+                ['Rajasthan', 68621012],
+                ['Karnataka', 61130704],
+                ['Gujarat', 60383628],
+                ['Andhra Pradesh', 49386799],
+                ['Odisha', 41947358],
+                ['Telangana', 35286757],
+                ['Kerala', 33387677],
+                ['Jharkhand', 32966238],
+                ['Assam', 31169272],
+                ['Punjab', 27704236],
+                ['Chhattisgarh', 25540196],
+                ['Haryana', 25353081],
+                ['Jammu and Kashmir', 12548926],
+                ['Uttarakhand', 10116752],
+                ['Himachal Pradesh', 6856509],
+                ['Tripura', 3671032],
+                ['Meghalaya', 2964007],
+                ['Manipur', 2721756],
+                ['Nagaland', 1980602],
+                ['Goa', 1457723],
+                ['Arunachal Pradesh', 1382611],
+                ['Mizoram', 1091014],
+                ['Sikkim', 607688],
+                ['Delhi', 16753235],
+                ['Puducherry', 1244464],
+                ['Chandigarh', 1054686],
+                ['Andaman and Nicobar Islands', 379944],
+                ['Dadra and Nagar Haveli', 342853],
+                ['Daman and Diu', 242911],
+                ['Lakshadweep', 64429]
+            ]);
+
+            var options = {
+                domain: 'IN',
+                // datalessRegionColor: '#123456',
+                region: 'IN',
+                displayMode: 'regions',
+                resolution: 'provinces',
+                keepAspectRatio: true,
+                // width: '347px',
+                // height: '10px',
+                // width: 550,
+                // height: 250,
+                legend: 'none',
+                /* chartArea: {
+                    top: 0,
+                    left: 0,
+                    height: '100%',
+                    width: '100%'
+                } */
+            };
+
+
+            var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+
+            chart.draw(data, options);
+        }
+
+        function myfunc() {
+            // var h = $('svg>g').height();
+            // var w = $('svg>g').width();
+            // console.log(h + "::" + w);
+            // $('svg').attr("width", w);
+            // $('svg').attr("height", h);
+            $('path[fill="#f5f5f5"]').remove();
+            $('svg').attr('viewBox', '1350 100 1906 2147');
+            $('svg').attr('preserveAspectRatio', 'xMinYMid');
+            // svg.setAttribute("height", bbox.y + bbox.height + bbox.y);
+            // console.log($('svg').children('g g:first-child'));
+        }
+        myfunc();
+        /* function myfunc2() {
+            var h = $('svg>g').height();
+            var w = $('svg>g').width();
+            console.log(h + "::" + w);
+            $('svg').attr("width", w);
+            $('svg').attr("height", h);
+        } */
+    </script>
+    <style>
+        /* .test {
+            width: 100px;
+        }
+        
+        path[fill='#123456'] {
+            display: none !important
+        } */
+        /* 
+        .chart {
+            width: 100%;
+            min-height: 450px;
+        } */
+        
+        g>rect {
+            display: none;
+        }
+        /* svg {
+            overflow-wrap: inherit;
+            height: 100%;
+            width: 100%;
+        } */
+    </style>
+</head>
+
+<body>
+    <!-- <div>Hello</div> -->
+    <!-- <div class="container"> -->
+    <!-- <div class="row"> -->
+    <!-- <div class="col-md-12"> -->
+    <button type="button" onclick="myfunc()">Alert</button>
+    <button type="button" onclick="myfunc2()">adsf</button>
+    <div id="regions_div" style="width: 100%;"></div>
+
+    <!-- </div> -->
+    <!-- </div> -->
+    <!-- </div> -->
+    <script>
+        // $(document).ready(function() {
+        $('svg').remove();
+        // console.log($('svg').children('g g:first-child'));
+        // });
+    </script>
+</body>
+
+</html>
